@@ -53,3 +53,15 @@ router.get("/:id", async (req, res) => {
     return;
 }
 })
+
+// delete
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const agencytoDelete = await Agency.findOneAndDelete({ _id: id });
+
+    res.status(200).json(agencytoDelete);
+  } catch (error) {
+    return;
+  }
+});
