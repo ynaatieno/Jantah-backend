@@ -42,4 +42,14 @@ router.get("/", async (req, res) => {
   }
 });
   
- 
+//  getone
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const agency = await Agency.findById(id);
+
+    res.status(200).json(agency);
+  } catch (error) {
+    return;
+}
+})
