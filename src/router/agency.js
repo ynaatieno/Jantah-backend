@@ -30,3 +30,16 @@ router.post("/add", async (req, res) => {
     
     
   
+  // get
+
+router.get("/", async (req, res) => {
+  try {
+  const agency= await Agency.find();
+
+    return res.status(200).json(agency);
+  } catch (error) {
+   return res.status(500).json({message:error });
+  }
+});
+  
+ 
