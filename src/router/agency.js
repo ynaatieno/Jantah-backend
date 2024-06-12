@@ -65,3 +65,21 @@ router.delete("/:id", async (req, res) => {
     return;
   }
 });
+
+// update
+router.patch("/:id", async (req, res) => {
+
+  try {
+    const { id } = req.params;
+    const agencyToUpdate = await Agency.findOneAndUpdate(
+      { _id: id },
+      req.body,
+      { new: true }
+    );
+    res.status(200).json(agencyToUpdate);
+  } catch (error) {
+    return res.status(500).json({message:error});
+    ;
+  }
+});
+
