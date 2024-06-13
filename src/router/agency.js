@@ -19,7 +19,7 @@ router.post("/add", async (req, res) => {
         email,
         location,
         phoneNumber,
-        image
+        image,
       });
       const savedAgency = await newAgency.save();
       res.status(201).json(savedAgency);
