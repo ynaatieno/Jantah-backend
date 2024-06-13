@@ -5,7 +5,7 @@ import Agency from "../models/agency.js";
 
 export const router = Router();
 router.post("/add", async (req, res) => {
-    const {name, businessOffered,agencyDetails,email,location,phoneNumber,img} = req.body;
+    const {name, businessOffered,agencyDetails,email,location,phoneNumber,image} = req.body;
     try {
       const agency = await Agency.findOne({ email });
       if (agency) {
@@ -19,7 +19,7 @@ router.post("/add", async (req, res) => {
         email,
         location,
         phoneNumber,
-        img
+        image
       });
       const savedAgency = await newAgency.save();
       res.status(201).json(savedAgency);

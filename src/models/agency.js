@@ -7,7 +7,7 @@ const agencySchema = mongoose.Schema({
 location:{type: String, required: true},
     phoneNumber:{type:String,reqired:true},
     
-    img:{type:String,reqired:true}
+    image:{type:String,reqired:true}
     
   });
   export default mongoose.model("Agency",agencySchema);
